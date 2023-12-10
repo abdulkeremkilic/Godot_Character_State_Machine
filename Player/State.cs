@@ -7,6 +7,7 @@ public partial class State : Node
 	public CharacterBody2D character; 
 	public State nextState;
     public bool isLanding = false;
+	public AnimationNodeStateMachinePlayback playback;
 
 
 	virtual public void isLandingMethod() {

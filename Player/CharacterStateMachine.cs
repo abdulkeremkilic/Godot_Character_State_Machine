@@ -7,9 +7,19 @@ public partial class CharacterStateMachine : Node
 	[Export]
 	public CharacterBody2D character;
 	[Export]
+	public AnimationTree animationTree;
+	[Export]
 	public Godot.Collections.Array<State> stateList;
 
-	public override void _PhysicsProcess(double delta)
+
+    public override void _Ready()
+    {
+		foreach(State state in stateList) {
+			state.playback = (AnimationNodeStateMachinePlayback) animationTree.Get("parameters/playback");
+		}
+    }
+
+    public override void _PhysicsProcess(double delta)
 	{
 		currentState.character = this.character;
 
@@ -37,7 +47,6 @@ public partial class CharacterStateMachine : Node
 
 	public bool checkIfCanMove()
 	{
-		GD.Print(currentState.can_move);
 		return this.currentState.can_move;
 	}
 

@@ -6,13 +6,17 @@ public partial class LandingState : State
     private State groundState;
 
     public override void stateProcess(double delta)
-    {
+    {        
         this.can_move = true;
         
         if (character.IsOnFloor())
         {
             this.nextState = groundState;
         }
-    } 
-	
+    }
+
+    public override void onExit()
+    {
+        playback.Travel("move");
+    }
 }

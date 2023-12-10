@@ -6,22 +6,31 @@ public partial class GroundState : State
 	private float jumpVelocity = -450;
 	[Export]
 	private State airState;
+	[Export]
+	private State attactState;
 
-	public override void stateProcess(double delta) {
+	public override void stateProcess(double delta)
+	{
 
 		this.isLandingMethod();
 
-		if(!character.IsOnFloor() && !isLanding) {
+		if (!character.IsOnFloor() && !isLanding)
+		{
 			this.nextState = airState;
 		}
 
 	}
-	
+
 	public override void stateInput(InputEvent inputEvent)
 	{
 		if (inputEvent.IsActionPressed("jump"))
 		{
 			this.jump();
+		}
+
+		if (inputEvent.IsActionPressed("attack"))
+		{
+			this.attack();
 		}
 	}
 
@@ -30,8 +39,14 @@ public partial class GroundState : State
 		Vector2 velocity = this.character.Velocity;
 		velocity.Y = jumpVelocity;
 		this.character.Velocity = velocity;
-		GD.Print(character.Velocity.X);
 		nextState = airState;
+		playback.Travel("jump");
+	}
+
+	public void attack()
+	{
+		playback.Travel("attack_1");
+		nextState = attactState;
 	}
 }
 
