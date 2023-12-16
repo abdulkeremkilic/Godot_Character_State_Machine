@@ -12,17 +12,17 @@ public partial class CharacterStateMachine : Node
 	public Godot.Collections.Array<State> stateList;
 
 
-    public override void _Ready()
-    {
-		foreach(State state in stateList) {
-			state.playback = (AnimationNodeStateMachinePlayback) animationTree.Get("parameters/playback");
+	public override void _Ready()
+	{
+		foreach (State state in stateList)
+		{
+			state.playback = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
 		}
-    }
+	}
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		currentState.character = this.character;
-
 		if (currentState.nextState != null)
 		{
 			this.switchState(currentState.nextState);
@@ -54,6 +54,4 @@ public partial class CharacterStateMachine : Node
 	{
 		currentState.stateInput(@event);
 	}
-
-
 }

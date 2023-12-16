@@ -10,18 +10,18 @@ public partial class player : CharacterBody2D
 
 	public AnimationTree animationTree;
 	public AnimatedSprite2D animatedSprite2D;
-	private CharacterStateMachine stateMachine;
-	private Vector2 direction;
+	public CharacterStateMachine stateMachine;
+	public Vector2 direction;
 
-    public override void _Ready()
-    {
-        animationTree = GetNode<AnimationTree>("AnimationTree");
+	public override void _Ready()
+	{
+		animationTree = GetNode<AnimationTree>("AnimationTree");
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		stateMachine = GetNode<CharacterStateMachine>("CharacterStateMachine");
 		animationTree.Active = true;
-    }
+	}
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 
@@ -46,14 +46,16 @@ public partial class player : CharacterBody2D
 		MoveAndSlide();
 	}
 
-	private void updateFacingDirection() {
+	private void updateFacingDirection()
+	{
 		if (direction.X > 0)
 			animatedSprite2D.FlipH = false;
-		else if(direction.X < 0)
+		else if (direction.X < 0)
 			animatedSprite2D.FlipH = true;
 	}
 
-	private void updateAnimationParameters() {
+	private void updateAnimationParameters()
+	{
 		animationTree.Set("parameters/move/blend_position", direction.X);
 	}
 }

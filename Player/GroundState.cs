@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class GroundState : State
@@ -12,6 +13,7 @@ public partial class GroundState : State
 	public override void stateProcess(double delta)
 	{
 
+		//GD.Print(playback.GetCurrentNode()); // this brings which node you are playing
 		this.isLandingMethod();
 
 		if (!character.IsOnFloor() && !isLanding)
@@ -47,6 +49,8 @@ public partial class GroundState : State
 	{
 		playback.Travel("attack_1");
 		nextState = attactState;
+		//will need to stay in attack state during the animation.
 	}
+
 }
 
