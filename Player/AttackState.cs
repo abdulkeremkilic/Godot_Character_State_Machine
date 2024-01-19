@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading;
 
 public partial class AttackState : State
 {
@@ -9,7 +10,6 @@ public partial class AttackState : State
 
     public override void stateProcess(double delta)
   {
-    GD.Print(this.onAnimationFinished("attack_1"));
     if (this.character.IsOnFloor() && !Input.IsActionJustReleased("attack"))
     {
       this.nextState = groundState;

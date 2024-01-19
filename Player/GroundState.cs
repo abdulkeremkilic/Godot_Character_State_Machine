@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 public partial class GroundState : State
@@ -34,6 +33,9 @@ public partial class GroundState : State
 		{
 			this.attack();
 		}
+
+		// if attact_1 is playing and actionPressed(attack)
+		//play attack_2 
 	}
 
 	public void jump()
@@ -47,7 +49,8 @@ public partial class GroundState : State
 
 	public void attack()
 	{
-		playback.Travel("attack_1");
+		GD.Print(playback.GetCurrentNode());
+		playback.Travel("attack_2");
 		nextState = attactState;
 		//will need to stay in attack state during the animation.
 	}

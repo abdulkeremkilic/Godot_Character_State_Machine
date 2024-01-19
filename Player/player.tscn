@@ -618,15 +618,19 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uxtha"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dcpfr"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nrkt5"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nwtle"]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lsr1g"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l522j"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_58b5r"]
 states/End/position = Vector2(1446.67, 188.395)
@@ -646,7 +650,7 @@ states/jump/position = Vector2(628.444, 81.3333)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_g4xw4")
 states/move/position = Vector2(628, 187.926)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_nxiao"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_qr46k"), "fall", "move", SubResource("AnimationNodeStateMachineTransition_y0p5s"), "jump", "double_jump", SubResource("AnimationNodeStateMachineTransition_eq4cw"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_lrtt6"), "double_jump", "fall", SubResource("AnimationNodeStateMachineTransition_uxtha"), "attack_1", "attack_2", SubResource("AnimationNodeStateMachineTransition_dcpfr"), "attack_2", "attack_3", SubResource("AnimationNodeStateMachineTransition_nrkt5"), "attack_1", "move", SubResource("AnimationNodeStateMachineTransition_nwtle"), "attack_2", "move", SubResource("AnimationNodeStateMachineTransition_lsr1g"), "attack_3", "move", SubResource("AnimationNodeStateMachineTransition_l522j")]
-graph_offset = Vector2(-25, 39)
+graph_offset = Vector2(-114, 134)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_n6jvy")
